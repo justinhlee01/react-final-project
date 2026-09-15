@@ -2,12 +2,11 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  decrementQuantity,
-  incrementQuantity,
   removeItem,
   selectCartItems,
   selectTotalCost,
   selectTotalQuantity,
+  updateQuantity,
 } from '../redux/CartSlice.jsx'
 import PlantIcon from './PlantIcon.jsx'
 import './CartItem.css'
@@ -99,8 +98,8 @@ export default function CartItem() {
           <CartRow
             key={item.id}
             item={item}
-            onIncrement={(id) => dispatch(incrementQuantity(id))}
-            onDecrement={(id) => dispatch(decrementQuantity(id))}
+            onIncrement={(id) => dispatch(updateQuantity({ id, amount: 1 }))}
+            onDecrement={(id) => dispatch(updateQuantity({ id, amount: -1 }))}
             onRemove={(id) => dispatch(removeItem(id))}
           />
         ))}

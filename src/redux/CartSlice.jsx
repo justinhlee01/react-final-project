@@ -9,7 +9,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     // Adds a plant the first time it's added; a plant already in the cart
-    // is left untouched here (quantity changes go through increment/decrement).
+    // is left untouched here (quantity changes go through updateQuantity).
     addItem: (state, action) => {
       const plant = action.payload
       const alreadyInCart = state.items.find((item) => item.id === plant.id)
@@ -27,22 +27,20 @@ export const cartSlice = createSlice({
     removeItem: (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload)
     },
-    incrementQuantity: (state, action) => {
-      const item = state.items.find((item) => item.id === action.payload)
+    // payload: { id, amount } — amount is +1 for the increase button and -1
+    // for the decrease button. Quantity never drops below 1; use removeItem
+    // (the delete button) to take a plant out of the cart entirely.
+    updateQuantity: (state, action) => {
+      const { id, amount } = action.payload
+      const item = state.items.find((item) => item.id === id)
       if (item) {
-        item.quantity += 1
-      }
-    },
-    decrementQuantity: (state, action) => {
-      const item = state.items.find((item) => item.id === action.payload)
-      if (item && item.quantity > 1) {
-        item.quantity -= 1
+        item.quantity = Math.max(1, item.quantity + amount)
       }
     },
   },
 })
 
-export const { addItem, removeItem, incrementQuantity, decrementQuantity } = cartSlice.actions
+export const { addItem, removeItem, updateQuantity } = cartSlice.actions
 
 // Selectors
 export const selectCartItems = (state) => state.cart.items
