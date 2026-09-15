@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Color tokens */
+  --pine-950: #16261c;
+  --pine-800: #24402e;
+  --moss-500: #6b8f5c;
+  --parchment-100: #eeead9;
+  --berry-600: #7a3355;
+  --gold-400: #d8b44e;
+  --ink: #16241b;
+
+  /* Type tokens */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--parchment-100);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shared button styles used across landing, listing, and cart pages */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 30px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button--primary {
+  background: var(--gold-400);
+  color: var(--pine-950);
+}
+
+.button--primary:hover {
+  background: #e4c366;
+}
+
+.button--outline {
+  background: transparent;
+  color: var(--pine-950);
+  border-color: var(--pine-800);
+}
+
+.button--outline:hover {
+  background: rgba(36, 64, 46, 0.08);
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.7;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-400);
+  outline-offset: 2px;
+}

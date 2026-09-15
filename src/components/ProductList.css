@@ -1,0 +1,143 @@
+.catalog {
+  flex: 1;
+  padding: 56px 8vw 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.catalog__intro {
+  max-width: 56ch;
+  margin-bottom: 48px;
+}
+
+.catalog__intro h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin: 0 0 12px;
+  color: var(--pine-950);
+}
+
+.catalog__intro p {
+  margin: 0;
+  color: #4a5a4c;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.catalog__section {
+  margin-bottom: 56px;
+}
+
+.catalog__section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid rgba(36, 64, 46, 0.18);
+  padding-bottom: 14px;
+  margin-bottom: 26px;
+}
+
+.catalog__section-header h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.55rem;
+  margin: 0;
+  color: var(--pine-800);
+  white-space: nowrap;
+}
+
+.catalog__section-header p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #5b6b5c;
+  text-align: right;
+  max-width: 42ch;
+}
+
+.plant-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.plant-card {
+  display: flex;
+  flex-direction: column;
+  background: #fbfaf3;
+  border: 1px solid rgba(36, 64, 46, 0.14);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.plant-card__thumb {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plant-card__icon {
+  width: 58%;
+  height: 58%;
+}
+
+.plant-card__body {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.plant-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+  color: var(--pine-950);
+}
+
+.plant-card__description {
+  margin: 0 0 18px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #5b6b5c;
+  flex: 1;
+}
+
+.plant-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.plant-card__price {
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--berry-600);
+}
+
+.plant-card__add {
+  padding: 9px 18px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .catalog {
+    padding: 40px 6vw 70px;
+  }
+  .catalog__section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .catalog__section-header p {
+    text-align: left;
+  }
+}
